@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Registration Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+<div class="Registration-Page">
+    <div class="form">
+        <form onsubmit="return validateRegistration()" class="needs-validation" novalidate>
+            <h2 style="font-family: Arial, Helvetica, sans-serif; color:red; text-align: center;margin-top: 10%;">Online Shopping Customer Registration Page</h2></br>
+           <div style="padding-left:40%;">
+            <Label>Full Name  :</Label>
+            <input type="text" placeholder="Enter Full Name" id="name" /></br></br>
+            <Label>UserName  :</Label>
+            <input type="text" placeholder="Enter User Name" id="user" /></br></br>
+            <Label>Password   :</Label>
+            <input type="password" placeholder="Enter Password" id="pass"/></br></br>
+            <Label>Email Id   :</Label>
+            <input type="email" placeholder="Enter Email" id="email"/></br></br>
+            <Label>Location   :</Label>
+            <input type="text" placeholder="Enter your city" id="city"/></br></br>
+            <Label>Mobile     :</Label>
+            <input type="number" placeholder="Enter Mobile Number" id="mobile"/></br></br>
+            
+            <button style="margin-right: 55px;background-position-x: center;" type="submit">Register</button>
+            <button style="background-position-x: center;" type="reset" >Reset</button>
+          </form>
+
+          <p style="margin-left: 60%;"><a href="index.html">Back To HomePage</a></p>
+        </div>
+        <script src="script.js"></script>
+    </div>
+</div>
+</body>
+</html>
