@@ -1,0 +1,231 @@
+home.html
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+<div class="login-page">
+    <div class="form" >
+        <form  onsubmit="return validateLogin()" class="needs-validation" novalidate>
+            <h2 style="font-family: Arial, Helvetica, sans-serif; color:red;text-align: center;margin-top: 10%;">Online Shopping Login Page</h2></br>
+            <div style="padding-left:40%;">
+            <Label>UserName:</Label>
+            <input type="text" placeholder="Enter Username" id="user" /></br></br>
+            <Label>Password:</Label>
+            <input onsubmit="return validateLogin()" type="password" placeholder="Enter Password" id="pass" /> </br></br>
+    
+            <button style="margin-right: 50px;background-position-x: center;" type="submit" class="btn btn-primary">Login</button>
+            <button style="background-position-x: center;" type="reset" class="btn btn-primary">Reset</button>
+       </div>
+        </form>
+
+        <p style="margin-left: 70%;"><a href="index.html">Back To HomePage</a></p>
+        <p style="margin-left: 70%;"><a href="register.html">New User?  Register Here!</a></p>
+        <script src="script.js"></script>
+    </div>
+</div>
+</body>
+</html>
+index.html
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="stle.css">
+  <title>Shopping Cart</title>
+</head>
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="https://bit.ly/2PaYn5O" type="video/mp4">
+      </video>      
+    <div class="box">
+    <button id="login" onclick="lo()" >Login</button>
+    <button id="register" onclick="re()" >Register</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+stle.css
+.box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    flex-direction:column;
+}
+button{
+    background-color: darkseagreen;
+    color:black;
+    font-size:2em;
+    margin: 5px;
+    box-shadow: inset;
+    border-radius: 5px;
+    border-width: 2px;
+}
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+register.html
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Registration Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+<div class="Registration-Page">
+    <div class="form">
+        <form onsubmit="return validateRegistration()" class="needs-validation" novalidate>
+            <h2 style="font-family: Arial, Helvetica, sans-serif; color:red; text-align: center;margin-top: 10%;">Online Shopping Customer Registration Page</h2></br>
+           <div style="padding-left:40%;">
+            <Label>Full Name  :</Label>
+            <input type="text" placeholder="Enter Full Name" id="name" /></br></br>
+            <Label>UserName  :</Label>
+            <input type="text" placeholder="Enter User Name" id="user" /></br></br>
+            <Label>Password   :</Label>
+            <input type="password" placeholder="Enter Password" id="pass"/></br></br>
+            <Label>Email Id   :</Label>
+            <input type="email" placeholder="Enter Email" id="email"/></br></br>
+            <Label>Location   :</Label>
+            <input type="text" placeholder="Enter your city" id="city"/></br></br>
+            <Label>Mobile     :</Label>
+            <input type="number" placeholder="Enter Mobile Number" id="mobile"/></br></br>
+            
+            <button style="margin-right: 55px;background-position-x: center;" type="submit">Register</button>
+            <button style="background-position-x: center;" type="reset" >Reset</button>
+          </form>
+
+          <p style="margin-left: 60%;"><a href="index.html">Back To HomePage</a></p>
+        </div>
+        <script src="script.js"></script>
+    </div>
+</div>
+</body>
+</html>
+
+script.jsconst catalog = [  { id: 1, name: 'Product 1', price: 20 },
+                   { id: 2, name: 'Product 2', price: 30 },
+                   { id: 3, name: 'Product 3', price: 25 },
+                   { id: 4, name: 'Product 4', price: 35 },
+                ];
+// Function to load the catalog
+function loadCatalog() {
+      const catalogContainer = document.getElementById('content');
+      catalogContainer.innerHTML = '<h2>Catalog</h2>';
+      catalog.forEach(product => {
+                          const productCard = document.createElement('div');
+                          productCard.classList.add('product-card');
+                          productCard.innerHTML = `<h3>${product.name}</h3>
+                                                   <p>$${product.price}</p>
+                                                   <button onclick="addToCart(${product.id})">Add to Cart</button>`;
+                          catalogContainer.appendChild(productCard);
+      });
+}
+
+function validateRegistration() {
+      const username = document.getElementById('user').value;
+      const password = document.getElementById('pass').value;
+      const mobile = document.getElementById('mobile').value;
+      const city = document.getElementById('city').value;
+      if (username.trim() === '' || password.trim() === '' || mobile.trim() === '' || city.trim() === '') {
+      alert('Please enter all the detaills and submit your form');
+      return false;
+      }
+      else{
+      alert("Registration succesfull")
+      window.location.href="login.html"
+      }
+     }
+     // Function to validate login form
+function validateLogin() {
+    const username = document.getElementById('user').value;
+    const password = document.getElementById('pass').value;
+    if (username.trim() === '' || password.trim() === ''){
+        alert('Please enter both username and password.');
+        return false;
+        }
+        else{
+        alert('welcome to Shopping Press ok to Continue your shopping');
+        window.location.href="home.html"
+        }
+     }
+
+// Function to add a product to the cart
+function addToCart(productId) {
+// Implement cart functionality here
+console.log(`Product ${productId} added to cart`);
+}
+// Initial load
+loadCatalog();
+function lo(){
+    window.location.href="login.html"
+}
+function re(){
+    window.location.href="register.html"
+}
+style.css
+body{
+    font-family: 'Arial',sans-serif;
+    background-color:aquamarine;
+    margin: 0;
+    padding: 0;
+    }
+    header{
+      background-color:#7ff4ff;
+      color: red;
+      padding: 20px;
+      text-align: center;
+    }
+    nav ul {
+    list-style: none;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    }
+    nav li
+    {
+     margin: 0 30px;
+     }
+     main
+     {
+      padding: 20px;
+    }
+
+login.html
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+<div class="login-page">
+    <div class="form" >
+        <form  onsubmit="return validateLogin()" class="needs-validation" novalidate>
+            <h2 style="font-family: Arial, Helvetica, sans-serif; color:red;text-align: center;margin-top: 10%;">Online Shopping Login Page</h2></br>
+            <div style="padding-left:40%;">
+            <Label>UserName:</Label>
+            <input type="text" placeholder="Enter Username" id="user" /></br></br>
+            <Label>Password:</Label>
+            <input onsubmit="return validateLogin()" type="password" placeholder="Enter Password" id="pass" /> </br></br>
+    
+            <button style="margin-right: 50px;background-position-x: center;" type="submit" class="btn btn-primary">Login</button>
+            <button style="background-position-x: center;" type="reset" class="btn btn-primary">Reset</button>
+       </div>
+        </form>
+
+        <p style="margin-left: 70%;"><a href="index.html">Back To HomePage</a></p>
+        <p style="margin-left: 70%;"><a href="register.html">New User?  Register Here!</a></p>
+        <script src="script.js"></script>
+    </div>
+</div>
+</body>
+</html>
+
